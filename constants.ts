@@ -198,26 +198,17 @@ export const PROJECTS: Project[] = [
     description: "Developed a digital library system using Python Flask and Bootstrap. The project supports bilingualism (Kurdish/Arabic) and includes features such as: Dark Mode, student testing system, and responsive design.",
     tags: ["Python Flask", "JavaScript", "Tailwind", "Bootstrap 5","Responsive Design", "RTL Support", "Using AI", "Dark Mode", "Reponsive Design"],
     image: "/image/HudaL.jpg",
-    demoLink: "https://maktabahuda.netlify.app/",
-    repoLink: "#",
+    demoLink: "https://huda-library.vercel.app/",
+    repoLink: "https://github.com/AminKurdish/Huda-Library",
   },
   {
     id: 2,
-    title: "Portfolio Website",
-    description: "This portfolio website is built using HTML, CSS, and JavaScript. It features a fully responsive design that works smoothly across mobile, tablet, and desktop devices.",
-    tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-    image: "/image/Portfolio.jpg",
-    demoLink: "https://aminit.netlify.app/",
-    repoLink: "https://github.com/AminKurdish/Portfolio-Web"
-  },
-    {
-    id: 3,
     title: "Lumani Links",
     description: "Designing a Lumani Links for easy finding a social midea links for Componey or Personal.",
     tags: ["Tailwind", "React", "JavaScript", "Responsive Design", "Using AI", "Dark Mode", "Bootstrap 5"],
     image: "/image/lumaniL.png",
-    demoLink: "#",
-    repoLink: "#"
+    demoLink: "https://lumina-link.vercel.app/",
+    repoLink: "https://github.com/AminKurdish/Lumina-Link"
   },
 ];
 
