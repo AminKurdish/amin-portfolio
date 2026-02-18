@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
 
   const socialLinks = [
     {
-      href: '/pdf/AminEbrahim.pdf',
+      href: '/pdf/AminCV.pdf',
       label: 'CV',
       hoverColor: '#1e3a8a',
       icon: (
