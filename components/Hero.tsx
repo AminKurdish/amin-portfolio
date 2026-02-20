@@ -69,6 +69,7 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden bg-slate-50 dark:bg-slate-900 pt-20 pb-10">
       <style>{`
+        /* ===== Social Icons ===== */
         .cv-social-icon svg path,
         .cv-social-icon svg circle,
         .cv-social-icon svg line,
@@ -93,7 +94,135 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
             stroke: #64748b;
           }
         }
+
+        /* ===== Cosmic Star Button ===== */
+        @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap");
+
+        .cosmic-btn {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0.75rem 1.5rem;
+          width: auto;
+          min-width: 10rem;
+          overflow: hidden;
+          height: auto;
+          border-radius: 5rem;
+          transition: 0.5s;
+          border: 2px solid rgba(255, 255, 255, 0.6);
+          background: none;
+          background-image: none;
+          font-family: "Orbitron", sans-serif;
+          position: relative;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        .cosmic-btn #container-stars {
+          position: absolute;
+          z-index: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          transition: 0.5s;
+          border-radius: 5rem;
+          background: transparent;
+        }
+
+        .cosmic-btn strong {
+          z-index: 2;
+          position: relative;
+          font-family: "Orbitron", sans-serif;
+          font-size: clamp(10px, 2.5vw, 13px);
+          letter-spacing: 4px;
+          color: #ffffff;
+          text-shadow: 0 0 6px rgba(255,255,255,0.8), 0 0 12px rgba(245,67,79,0.5);
+          white-space: nowrap;
+        }
+
+        .cosmic-btn #glow {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          pointer-events: none;
+        }
+
+        .cosmic-btn .circle {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          filter: blur(1.5rem);
+        }
+
+        .cosmic-btn .circle:nth-of-type(1) {
+          background: rgba(245, 67, 79, 0.5);
+          animation: cb-orbit 8s linear infinite;
+        }
+
+        .cosmic-btn .circle:nth-of-type(2) {
+          background: rgba(99, 30, 41, 0.6);
+          animation: cb-orbit 10s linear infinite;
+        }
+
+        .cosmic-btn:hover {
+          transform: scale(1.08);
+        }
+
+        .cosmic-btn:active {
+          transform: scale(0.97);
+        }
+
+        @keyframes cb-orbit {
+          from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+          to   { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+        }
+
+        .cosmic-btn #stars {
+          position: relative;
+          background: transparent;
+          width: 200rem;
+          height: 200rem;
+        }
+
+        .cosmic-btn #stars::after {
+          content: "";
+          position: absolute;
+          top: -10rem;
+          left: -100rem;
+          width: 100%;
+          height: 100%;
+          animation: cb-animStarRotate 90s linear infinite;
+          background-image: radial-gradient(#ffffff 1px, transparent 1%);
+          background-size: 50px 50px;
+        }
+
+        .cosmic-btn #stars::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -50%;
+          width: 170%;
+          height: 500%;
+          animation: cb-animStar 60s linear infinite;
+          background-image: radial-gradient(#ffffff 1px, transparent 1%);
+          background-size: 50px 50px;
+          opacity: 0.5;
+        }
+
+        @keyframes cb-animStar {
+          from { transform: translateY(0); }
+          to   { transform: translateY(-135rem); }
+        }
+
+        @keyframes cb-animStarRotate {
+          from { transform: rotate(360deg); }
+          to   { transform: rotate(0); }
+        }
       `}</style>
+
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary-100 dark:bg-primary-900/20 blur-3xl opacity-50"></div>
@@ -102,31 +231,31 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="flex flex-col items-center justify-center gap-8 text-center">
-          
+
           {/* Image Section - Top */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="relative"
           >
-             <div className="relative w-56 h-56 md:w-72 md:h-72 mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-indigo-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
-                <img 
-                  src="/image/me.jpg" 
-                  alt="Me" 
-                  className="rounded-full w-full h-full object-cover border-4 border-white dark:border-slate-800 shadow-2xl relative z-10"
-                />
-                {/* Floating Badge */}
-                <div className="absolute bottom-2 right-0 rtl:right-auto rtl:left-0 bg-white dark:bg-slate-800 px-4 py-2 rounded-xl shadow-xl z-20 flex items-center gap-2 border border-slate-100 dark:border-slate-700">
-                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-ping"></div>
-                  <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">Available</span>
-                </div>
-             </div>
+            <div className="relative w-56 h-56 md:w-72 md:h-72 mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-indigo-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+              <img
+                src="/image/me.jpg"
+                alt="Me"
+                className="rounded-full w-full h-full object-cover border-4 border-white dark:border-slate-800 shadow-2xl relative z-10"
+              />
+              {/* Floating Badge */}
+              <div className="absolute bottom-2 right-0 rtl:right-auto rtl:left-0 bg-white dark:bg-slate-800 px-4 py-2 rounded-xl shadow-xl z-20 flex items-center gap-2 border border-slate-100 dark:border-slate-700">
+                <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-ping"></div>
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">Available</span>
+              </div>
+            </div>
           </motion.div>
 
           {/* Text Content - Below Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -135,13 +264,13 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
             <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
               {t.hero.greeting}
             </h1>
-            
+
             <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed px-4">
               {t.hero.description}
             </p>
-            
-            {/* Social Icons - All with hover animation */}
-            <div className="flex items-center justify-center gap-8 mb-10">
+
+            {/* Social Icons */}
+            <div className="flex items-center justify-center gap-8 mb-6">
               {socialLinks.map(({ href, label, hoverColor, icon }) => (
                 <a
                   key={label}
@@ -165,18 +294,37 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
                 </a>
               ))}
             </div>
-            
+
+            {/* Cosmic Button - AMIN'S AI */}
+            <div className="flex justify-center mb-8">
+              <a
+                href="https://ai-chatting-blush.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cosmic-btn"
+              >
+                <strong>AMIN&#39;S AI</strong>
+                <div id="container-stars">
+                  <div id="stars"></div>
+                </div>
+                <div id="glow">
+                  <div className="circle"></div>
+                  <div className="circle"></div>
+                </div>
+              </a>
+            </div>
+
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-6 justify-center">
-              <a 
-                href="#projects" 
+              <a
+                href="#projects"
                 onClick={(e) => scrollToSection(e, 'projects')}
                 className="w-full sm:w-auto px-10 py-4 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-semibold shadow-lg shadow-primary-500/30 transition-all transform hover:-translate-y-1 text-center"
               >
                 {t.hero.ctaPrimary}
               </a>
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 onClick={(e) => scrollToSection(e, 'contact')}
                 className="w-full sm:w-auto px-10 py-4 rounded-lg border-2 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-white hover:border-primary-600 dark:hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-500 font-medium transition-all text-center"
               >
@@ -184,10 +332,10 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
               </a>
             </div>
 
-            {/* Arrow Down - below buttons */}
+            {/* Arrow Down */}
             <div className="flex justify-center mt-6 animate-bounce">
-              <a 
-                href="#skills" 
+              <a
+                href="#skills"
                 onClick={(e) => scrollToSection(e, 'skills')}
                 className="text-slate-400 hover:text-primary-500 transition-colors"
               >
@@ -197,8 +345,6 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
           </motion.div>
 
         </div>
-        
-
       </div>
     </section>
   );
