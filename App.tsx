@@ -9,7 +9,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ColorSwitcher from './components/ColorSwitcher';
 import Preloader from './components/Preloader';
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -104,6 +104,7 @@ const App: React.FC = () => {
         onChange={setPrimaryColor} 
         dir={t.dir}
       />
+      <Analytics />
     </div>
   );
 };
