@@ -210,6 +210,15 @@ export const PROJECTS: Project[] = [
     demoLink: "https://lumina-link.vercel.app/",
     repoLink: "https://github.com/AminKurdish/Lumina-Link"
   },
+  {
+    id: 3,
+    title: "AI Chatbot",
+    description: "Developed an AI-powered chatbot using Gemini API. The chatbot provides intelligent responses to user queries and can be integrated into various platforms for customer support and engagement.",
+    tags: ["React", "Gemini API KEY", "Responsive Design", "Using AI", "Bootstrap 5"],
+    image: "/image/AIchatting.png",
+    demoLink: "https://ai-chatting-blush.vercel.app/",
+    repoLink: "https://github.com/AminKurdish/AI-Chatting"
+  },
 ];
 
 export const SKILL_SET = [
